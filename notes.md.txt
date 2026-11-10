@@ -1,0 +1,28 @@
+Data notes: EPL match analysis
+
+Source
+- Football-Data.co.uk, English Premier League, seasons 2016/17 to 2025/26 (10 files).
+
+Cleaning decisions
+- Files read as Windows-1252 (Latin-1) text so team names don't break.
+- Season label taken from the file name (for example E1617.csv = 2016/17).
+- Dates converted using the UK locale (day first).
+- Kept 22 source columns plus Season; dropped all others.
+- Missing bookmaker odds: ___ rows (___% of matches). Rows kept, probabilities left blank.
+- Missing Referee values: ___%.
+- Team name fixes: none.
+
+Calculated columns
+- TotalGoals, GoalDiff, HomePoints, AwayPoints, HomeWin.
+- Bookmaker probabilities: odds converted to 1/odds, then divided by their sum (the overround) so the three add up to 100%.
+- Favourite, FavouriteWon, HomeProbBucket.
+
+Validation checks
+- Total matches: Expectation met
+- Every season has 380 matches: Expectation met
+- Result vs goals mismatches: Expectation met
+- Negative stats: Expectation met
+- TeamMatches rows: 
+
+Limitations
+- One league and one bookmaker (Bet365), so findings can't be generalised.
